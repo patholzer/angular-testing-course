@@ -143,8 +143,6 @@ describe('CoursesService', () => {
     req.flush({
       payload: findLessonsForCourse(12).slice(0, 3)
     });
-
-
   });
 
 });
