@@ -1,12 +1,9 @@
 import {CalculatorService} from './calculator.service';
 import {LoggerService} from './logger.service';
+import {TestBed} from '@angular/core/testing';
 
 
-// use 'spyOn(logger)' to create a java spy on a object
-// createSpyObj creates a mock in the java world
-
-
-describe('CalculatorService with Mocks and Spys', () => {
+describe('CalculatorService With DependencyInjection', () => {
 
   let calculator: CalculatorService;
   let loggerSpy: any;
@@ -15,9 +12,19 @@ describe('CalculatorService with Mocks and Spys', () => {
     console.log('Calling beforeEach');
     loggerSpy = jasmine.createSpyObj('LoggerService', ['log']);
 
-    calculator = new CalculatorService(loggerSpy);
+    // define the dependency injection for the test environment
+    TestBed.configureTestingModule({
+      providers: [
+        CalculatorService,
+        // replace loggerService instance with loggerSpy object
+        {provide: LoggerService, useValue: loggerSpy}
+      ]
+    });
+
+    calculator = TestBed.inject(CalculatorService);
   });
 
+  // fit('should add two numbers', () => {    --> Nur dieser Test wird ausgeführt weil 'fit'
   it('should add two numbers', () => {
     console.log('Add test');
 

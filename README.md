@@ -1,3 +1,8 @@
+## Meine Mitschrift :-)
+
+- Tests können mittels x vor describe oder it deaktiviert werden (skipped)
+- Mittels f vor describe und it wird (zB fdescribe oder fit) nur der spezifische Test(s) vom Testrunner ausgeführt
+
 
 ## Angular Testing Course
 
