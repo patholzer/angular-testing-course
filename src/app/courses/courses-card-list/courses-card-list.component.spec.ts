@@ -10,7 +10,7 @@ describe('CoursesCardListComponent', () => {
 
   let component: CoursesCardListComponent;
   let fixture: ComponentFixture<CoursesCardListComponent>;
-  let el: DebugElement;
+  let debugElement: DebugElement;
 
   beforeEach(waitForAsync(() => {
 
@@ -21,7 +21,7 @@ describe('CoursesCardListComponent', () => {
       .then(() => {
         fixture = TestBed.createComponent(CoursesCardListComponent);
         component = fixture.componentInstance;
-        el = fixture.debugElement;
+        debugElement = fixture.debugElement;
       })
 
   }));
@@ -39,7 +39,7 @@ describe('CoursesCardListComponent', () => {
 
     fixture.detectChanges();
 
-    let cards = el.queryAll(By.css('.course-card'));
+    let cards = debugElement.queryAll(By.css('.course-card'));
     expect(cards).toBeTruthy('Couldn not find cards');
     expect(cards.length).toBe(12);
 
@@ -54,7 +54,7 @@ describe('CoursesCardListComponent', () => {
 
     const course = component.courses[0];
 
-    const card = el.query(By.css('.course-card:first-child'));
+    const card = debugElement.query(By.css('.course-card:first-child'));
     const title = card.query(By.css('mat-card-title'));
     const image = card.query(By.css('img'));
 

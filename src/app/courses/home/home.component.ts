@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
 
       const courses$ = this.coursesService.findAllCourses();
 
-      this.beginnerCourses$ = this.filterByCategory(courses$, 'BEGINNER');
+      this.beginnerCourses$ = this.filterByCategory(courses$, 'BEGINNER')
 
       this.advancedCourses$ = this.filterByCategory(courses$, 'ADVANCED');
 
